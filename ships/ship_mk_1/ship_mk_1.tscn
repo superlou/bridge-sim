@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://ctpqjdto8qaq5"]
+
+[ext_resource type="Script" uid="uid://dkenolot56424" path="res://ships/ship_mk_1/ship_mk_1.gd" id="1_7v0tr"]
+[ext_resource type="Script" uid="uid://ccccnfa1jr43o" path="res://systems/ship/deck.gd" id="2_1rlim"]
+[ext_resource type="Script" uid="uid://b52bnkbtoa7nb" path="res://systems/ship/room.gd" id="3_4rb3n"]
+[ext_resource type="Script" uid="uid://q55222oaywb2" path="res://systems/ship/thruster.gd" id="4_njso5"]
+[ext_resource type="Script" uid="uid://76sb7c4bae6w" path="res://systems/ship/time_computer.gd" id="5_st3ky"]
+[ext_resource type="Script" uid="uid://sutlg7tk4mq4" path="res://systems/ship/inertial_computer.gd" id="6_o4xg5"]
+[ext_resource type="Script" uid="uid://sroie8ml6rdh" path="res://systems/ship/thrust_computer.gd" id="7_p2rcw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1rlim"]
+size = Vector3(50, 3, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_njso5"]
+size = Vector3(10, 3, 10)
+
+[node name="ShipMk1" type="Node3D"]
+script = ExtResource("1_7v0tr")
+metadata/_custom_type_script = "uid://conghudhpo702"
+
+[node name="Deck" type="Area3D" parent="."]
+script = ExtResource("2_1rlim")
+metadata/_custom_type_script = "uid://ccccnfa1jr43o"
+
+[node name="Outline" type="CollisionShape3D" parent="Deck"]
+shape = SubResource("BoxShape3D_1rlim")
+
+[node name="Room" type="Area3D" parent="Deck"]
+script = ExtResource("3_4rb3n")
+metadata/_custom_type_script = "uid://b52bnkbtoa7nb"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Deck/Room"]
+shape = SubResource("BoxShape3D_njso5")
+
+[node name="Thruster" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 70.1658)
+script = ExtResource("4_njso5")
+metadata/_custom_type_script = "uid://q55222oaywb2"
+
+[node name="TimeComputer" type="Node" parent="."]
+script = ExtResource("5_st3ky")
+metadata/_custom_type_script = "uid://76sb7c4bae6w"
+
+[node name="InertialComputer" type="Node" parent="." node_paths=PackedStringArray("ship")]
+script = ExtResource("6_o4xg5")
+ship = NodePath("..")
+metadata/_custom_type_script = "uid://sutlg7tk4mq4"
+
+[node name="ThrustComputer" type="Node" parent="." node_paths=PackedStringArray("ship")]
+script = ExtResource("7_p2rcw")
+ship = NodePath("..")
+metadata/_custom_type_script = "uid://sroie8ml6rdh"

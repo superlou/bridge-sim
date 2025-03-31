@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmppl5tan427k"]
+
+[ext_resource type="Script" uid="uid://caoo75ewkyffe" path="res://consoles/helm_console.gd" id="1_f8tps"]
+
+[node name="Helm" type="Node"]
+physics_interpolation_mode = 2
+script = ExtResource("1_f8tps")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Accelerate"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Decelerate"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Velocity"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "{{velocity}}"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Time"
+
+[node name="Time" type="Label" parent="VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "{{time}}"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

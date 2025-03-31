@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bojf818h36nmj"]
+
+[ext_resource type="Script" uid="uid://cgndnfk1tf5u1" path="res://consoles/view_screen_console.gd" id="1_lnilr"]
+
+[node name="ViewScreen" type="Node"]
+script = ExtResource("1_lnilr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Position"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "{{position}}"

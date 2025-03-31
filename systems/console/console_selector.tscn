@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://j6i5h445cgo5"]
+
+[ext_resource type="Script" uid="uid://5h5adqag4we4" path="res://systems/console/console_selector.gd" id="1_abonp"]
+
+[node name="ConsoleSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_abonp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Select Console (ship 0)"
+
+[node name="SelectHelm" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Helm"
+
+[node name="SelectViewScreen" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "View Screen"
+
+[connection signal="pressed" from="VBoxContainer/SelectHelm" to="." method="_on_select_helm_pressed"]
+[connection signal="pressed" from="VBoxContainer/SelectViewScreen" to="." method="_on_select_view_screen_pressed"]
