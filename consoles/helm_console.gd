@@ -17,5 +17,6 @@ func _on_ship_net_message(msg):
 	if msg["source"] == "InertialComputer" and msg["label"] == "velocity":
 		VelocityLabel.text = str(msg["value"])
 
+
 func _on_button_pressed() -> void:
 	ship_net.console_send(self, "accelerate", true)

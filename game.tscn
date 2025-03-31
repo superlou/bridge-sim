@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dn2r2gky457hq" path="res://game.gd" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://j6i5h445cgo5" path="res://systems/console/console_selector.tscn" id="2_e2o6t"]
 
-[node name="Game" type="Node3D"]
+[node name="Game" type="Node"]
 script = ExtResource("1_80nbo")
 
 [node name="Scenario" type="Node3D" parent="."]

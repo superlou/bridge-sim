@@ -1,4 +1,4 @@
-extends Node3D
+extends Node
 
 var ShipMk1Scene := preload("res://ships/ship_mk_1/ship_mk_1.tscn")
 var HelmScene := preload("res://consoles/helm_console.tscn")

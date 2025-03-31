@@ -11,4 +11,4 @@ func _ready() -> void:
 
 func _on_ship_net_message(msg):
 	if msg["source"] == "HelmConsole" and msg["label"] == "accelerate":
-		ship.velocity.x += 1
+		ship.velocity.z -= 1

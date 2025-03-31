@@ -1,6 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://bojf818h36nmj"]
+[gd_scene load_steps=6 format=3 uid="uid://bojf818h36nmj"]
 
 [ext_resource type="Script" uid="uid://cgndnfk1tf5u1" path="res://consoles/view_screen_console.gd" id="1_lnilr"]
+[ext_resource type="Shader" uid="uid://b81uyfec8fugu" path="res://consoles/grid.gdshader" id="2_i1wpj"]
+
+[sub_resource type="Environment" id="Environment_lnilr"]
+background_mode = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8q2do"]
+render_priority = 0
+shader = ExtResource("2_i1wpj")
+shader_parameter/scale_0 = 5
+shader_parameter/scale_1 = 20
+shader_parameter/line_scale_0 = 0.05
+shader_parameter/line_scale_1 = 0.1
+shader_parameter/offset = Vector3(0, 0, 0)
+shader_parameter/color_0 = Color(0.244776, 0.244776, 0.244776, 1)
+shader_parameter/color_1 = Color(0.144063, 0.144063, 0.144063, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lnilr"]
+size = Vector2(1, 1)
 
 [node name="ViewScreen" type="Node"]
 script = ExtResource("1_lnilr")
@@ -19,3 +37,15 @@ text = "Position"
 [node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "{{position}}"
+
+[node name="View" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="View"]
+environment = SubResource("Environment_lnilr")
+
+[node name="Camera3D" type="Camera3D" parent="View"]
+
+[node name="MoveReferenceGrid" type="MeshInstance3D" parent="View"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.527428, -1.10165)
+material_override = SubResource("ShaderMaterial_8q2do")
+mesh = SubResource("PlaneMesh_lnilr")
