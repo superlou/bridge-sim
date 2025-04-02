@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bojf818h36nmj"]
+[gd_scene load_steps=9 format=3 uid="uid://bojf818h36nmj"]
 
 [ext_resource type="Script" uid="uid://cgndnfk1tf5u1" path="res://consoles/view_screen_console.gd" id="1_lnilr"]
 [ext_resource type="Shader" uid="uid://b81uyfec8fugu" path="res://consoles/grid.gdshader" id="2_i1wpj"]
@@ -19,6 +19,16 @@ shader_parameter/color_1 = Color(0.144063, 0.144063, 0.144063, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lnilr"]
 size = Vector2(1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1wpj"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_i1wpj"]
+
+[sub_resource type="MultiMesh" id="MultiMesh_i1wpj"]
+transform_format = 1
+mesh = SubResource("SphereMesh_i1wpj")
 
 [node name="ViewScreen" type="Node"]
 script = ExtResource("1_lnilr")
@@ -49,3 +59,10 @@ environment = SubResource("Environment_lnilr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.527428, -1.10165)
 material_override = SubResource("ShaderMaterial_8q2do")
 mesh = SubResource("PlaneMesh_lnilr")
+
+[node name="StarField" type="MultiMeshInstance3D" parent="View"]
+material_override = SubResource("StandardMaterial3D_i1wpj")
+multimesh = SubResource("MultiMesh_i1wpj")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.00321, 0)
