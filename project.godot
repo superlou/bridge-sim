@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Lobby="*res://systems/multiplayer/lobby.gd"
 ship_net="*res://systems/multiplayer/ship_net.gd"
+ElectricalSystem="*res://systems/electrical/electrical_system.gd"
 
 [rendering]
 

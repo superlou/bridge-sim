@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://rxykdvfw0ybx"]
+
+[ext_resource type="Script" uid="uid://blp8y7f6conbj" path="res://systems/electrical/electrical_device.gd" id="1_yjhy7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ch6dn"]
+albedo_color = Color(1, 0.574167, 0.27, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ch6dn"]
+top_radius = 1.5
+bottom_radius = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjhy7"]
+albedo_color = Color(1, 0.574167, 0.27, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_yjhy7"]
+inner_radius = 2.582
+outer_radius = 0.663
+
+[node name="Reactor" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.992954, 0)
+material_override = SubResource("StandardMaterial3D_ch6dn")
+mesh = SubResource("CylinderMesh_ch6dn")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.761314, 0)
+material_override = SubResource("StandardMaterial3D_yjhy7")
+mesh = SubResource("TorusMesh_yjhy7")
+
+[node name="ElectricalDevice" type="Node" parent="."]
+script = ExtResource("1_yjhy7")
+supply = 50.0
+metadata/_custom_type_script = "uid://blp8y7f6conbj"

@@ -30,6 +30,5 @@ func _init_star_field() -> void:
 			randf_range(-1000, 1000)
 		)
 		var transform := Transform3D(Basis.IDENTITY, origin)
-		print(transform)
 		star_field.multimesh.set_instance_transform(i, transform)
 		
