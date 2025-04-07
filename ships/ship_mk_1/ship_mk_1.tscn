@@ -68,8 +68,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.53321, 0, 18.3599)
 [node name="Engine2" parent="Deck1/EngineeringBay" instance=ExtResource("5_0v7ov")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.593, 0, 18.3599)
 
-[node name="TimeComputer" type="Node" parent="."]
+[node name="TimeComputer" type="Node" parent="." node_paths=PackedStringArray("ship")]
 script = ExtResource("5_st3ky")
+ship = NodePath("..")
 metadata/_custom_type_script = "uid://76sb7c4bae6w"
 
 [node name="InertialComputer" type="Node" parent="." node_paths=PackedStringArray("ship")]

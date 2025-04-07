@@ -18,5 +18,10 @@ func _on_ship_net_message(msg):
 		VelocityLabel.text = str(msg["value"])
 
 
-func _on_button_pressed() -> void:
-	ship_net.console_send(self, "accelerate", true)
+
+func _on_accelerate_button_button_pressed() -> void:
+	send("accelerate")
+
+
+func _on_decelerate_button_button_pressed() -> void:
+	send("decelerate")

@@ -9,8 +9,12 @@ var msgs = []
 signal received_message(message)
 
 
-func console_send(console: Console, label:String, value) -> void:
+func console_send(console:Console, label:String, value) -> void:
 	send(console.ship_id, console.name, label, value)
+
+
+func computer_send(computer:Computer, label:String, value) -> void:
+	send(computer.ship.ship_id, computer.name, label, value)
 
 
 func send(ship_id:int, source:String, label:String, value) -> void:

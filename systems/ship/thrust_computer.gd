@@ -1,8 +1,5 @@
-extends Node
+extends Computer
 class_name ThrustComputer
-
-
-@export var ship:Ship = null
 
 
 func _ready() -> void:
@@ -12,3 +9,6 @@ func _ready() -> void:
 func _on_ship_net_message(msg):
 	if msg["source"] == "HelmConsole" and msg["label"] == "accelerate":
 		ship.velocity.z -= 1
+	
+	if msg["source"] == "HelmConsole" and msg["label"] == "decelerate":
+		ship.velocity.z += 1

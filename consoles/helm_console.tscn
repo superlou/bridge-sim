@@ -13,11 +13,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="AccelerateButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Accelerate"
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="DecelerateButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Decelerate"
 
@@ -44,4 +44,5 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "{{time}}"
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/AccelerateButton" to="." method="_on_accelerate_button_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/DecelerateButton" to="." method="_on_decelerate_button_button_pressed"]

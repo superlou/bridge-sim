@@ -1,4 +1,4 @@
-extends Node
+extends Computer
 class_name TimeComputer
 
 
@@ -15,4 +15,4 @@ func _ready() -> void:
 
 
 func _on_update_timer_timeout():
-	ship_net.send(0, "TimeComputer", "run_time", Time.get_ticks_msec() / 1000.0)
+	send("run_time", Time.get_ticks_msec() / 1000.0)
