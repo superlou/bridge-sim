@@ -23,9 +23,11 @@ func get_linked_conduits() -> Array:
 	return links.filter(func(x): return x is Conduit)
 
 
-func get_linked_electrical_devices() -> Array:
-	return links.filter(func(link):
+func get_linked_electrical_devices() -> Array[ElectricalDevice]:
+	var electrical_devices:Array[ElectricalDevice] = []
+	electrical_devices.assign(links.filter(func(link):
 		return link.has_node("ElectricalDevice")
 	).map(func(link):
 		return link.get_node("ElectricalDevice")
-	)
+	))
+	return electrical_devices
