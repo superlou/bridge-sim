@@ -1,0 +1,28 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bhw0neihicv68"]
+
+[ext_resource type="FontFile" uid="uid://cprb733yqs75n" path="res://fonts/ChakraPetch-Regular.ttf" id="1_touxu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmjyp"]
+bg_color = Color(0.0276, 0.07996, 0.12, 0.301961)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0.8215, 0.93, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[resource]
+Button/fonts/font = ExtResource("1_touxu")
+HBoxContainer/constants/separation = 8
+Label/constants/shadow_offset_x = 1
+Label/fonts/font = ExtResource("1_touxu")
+LineEdit/fonts/font = ExtResource("1_touxu")
+MarginContainer/constants/margin_bottom = 8
+MarginContainer/constants/margin_left = 8
+MarginContainer/constants/margin_right = 8
+MarginContainer/constants/margin_top = 8
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_dmjyp")
+VBoxContainer/constants/separation = 8

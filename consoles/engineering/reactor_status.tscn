@@ -10,27 +10,32 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yhpnw")
 
-[node name="HBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 
-[node name="ComputerNameLabel" type="Label" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="ComputerNameLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.819608, 0.929412, 1)
 text = "{{ComputerName}}"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Status"
 
-[node name="ReactorStatusLabel" type="Label" parent="HBoxContainer/HBoxContainer"]
+[node name="ReactorStatusLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "{{ReactorStatus}}"
 
-[node name="ReactorActionMenu" type="MenuButton" parent="HBoxContainer/HBoxContainer"]
+[node name="ReactorActionMenu" type="MenuButton" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Actions"
@@ -40,40 +45,40 @@ popup/item_0/id = 0
 popup/item_1/text = "Stop"
 popup/item_1/id = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Supply"
 
-[node name="ReactorSupplyLabel" type="Label" parent="HBoxContainer/HBoxContainer2"]
+[node name="ReactorSupplyLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "{{ReactorStatus}}"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="HBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer4"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 text = "Supply Target"
 
-[node name="ReactorSupplyTargetSlider" type="HSlider" parent="HBoxContainer/HBoxContainer4"]
+[node name="ReactorSupplyTargetSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 text = "Temperature"
 
-[node name="ReactorTemperatureLabel" type="Label" parent="HBoxContainer/HBoxContainer3"]
+[node name="ReactorTemperatureLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "{{ReactorTemperature}}"
 
-[connection signal="value_changed" from="HBoxContainer/HBoxContainer4/ReactorSupplyTargetSlider" to="." method="_on_reactor_supply_target_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer4/ReactorSupplyTargetSlider" to="." method="_on_reactor_supply_target_slider_value_changed"]
