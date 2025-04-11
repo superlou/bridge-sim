@@ -19,6 +19,8 @@ func _host_game() -> void:
 		_add_info("Error hosting (%s)" % error)
 		return
 
+	# Can't change the tree until the next frame
+	await get_tree().process_frame
 	get_tree().change_scene_to_file("res://game.tscn")
 
 

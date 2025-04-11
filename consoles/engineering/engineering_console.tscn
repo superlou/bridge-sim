@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccciewvgpvvwt"]
+
+[ext_resource type="Script" uid="uid://bihwkjp5nytul" path="res://consoles/engineering/engineering_console.gd" id="1_8bbxc"]
+[ext_resource type="PackedScene" uid="uid://djc630vbfwmv4" path="res://consoles/engineering/reactor_status.tscn" id="2_oat4l"]
+
+[node name="EngineeringConsole" type="Node2D"]
+script = ExtResource("1_8bbxc")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Reactor1Status" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_oat4l")]
+layout_mode = 2
+computer_name = "ReactorComputer1"
+
+[node name="Reactor2Status" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_oat4l")]
+layout_mode = 2
+computer_name = "ReactorComputer2"
+
+[connection signal="requested_status_change" from="MarginContainer/VBoxContainer/Reactor1Status" to="." method="_on_reactor_requested_status_change"]
+[connection signal="supply_target_changed" from="MarginContainer/VBoxContainer/Reactor1Status" to="." method="_on_reactor_supply_target_changed"]
+[connection signal="requested_status_change" from="MarginContainer/VBoxContainer/Reactor2Status" to="." method="_on_reactor_requested_status_change"]

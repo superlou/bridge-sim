@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bojf818h36nmj"]
 
-[ext_resource type="Script" uid="uid://cgndnfk1tf5u1" path="res://consoles/view_screen_console.gd" id="1_lnilr"]
-[ext_resource type="Shader" uid="uid://b81uyfec8fugu" path="res://consoles/grid.gdshader" id="2_i1wpj"]
+[ext_resource type="Script" uid="uid://cgndnfk1tf5u1" path="res://consoles/view_screen/view_screen_console.gd" id="1_lnilr"]
+[ext_resource type="Shader" uid="uid://b81uyfec8fugu" path="res://consoles/view_screen/grid.gdshader" id="2_i1wpj"]
 
 [sub_resource type="Environment" id="Environment_lnilr"]
 background_mode = 1

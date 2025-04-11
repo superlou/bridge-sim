@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bmppl5tan427k"]
 
-[ext_resource type="Script" uid="uid://caoo75ewkyffe" path="res://consoles/helm_console.gd" id="1_f8tps"]
+[ext_resource type="Script" uid="uid://caoo75ewkyffe" path="res://consoles/helm/helm_console.gd" id="1_f8tps"]
 
 [node name="Helm" type="Node"]
 physics_interpolation_mode = 2

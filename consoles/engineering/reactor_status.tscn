@@ -1,0 +1,79 @@
+[gd_scene load_steps=2 format=3 uid="uid://djc630vbfwmv4"]
+
+[ext_resource type="Script" uid="uid://dvs20blm8po4f" path="res://consoles/engineering/reactor_status.gd" id="1_yhpnw"]
+
+[node name="ReactorStatus" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yhpnw")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ComputerNameLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "{{ComputerName}}"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Status"
+
+[node name="ReactorStatusLabel" type="Label" parent="HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "{{ReactorStatus}}"
+
+[node name="ReactorActionMenu" type="MenuButton" parent="HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Actions"
+item_count = 2
+popup/item_0/text = "Start"
+popup/item_0/id = 0
+popup/item_1/text = "Stop"
+popup/item_1/id = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Supply"
+
+[node name="ReactorSupplyLabel" type="Label" parent="HBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "{{ReactorStatus}}"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Supply Target"
+
+[node name="ReactorSupplyTargetSlider" type="HSlider" parent="HBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Temperature"
+
+[node name="ReactorTemperatureLabel" type="Label" parent="HBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "{{ReactorTemperature}}"
+
+[connection signal="value_changed" from="HBoxContainer/HBoxContainer4/ReactorSupplyTargetSlider" to="." method="_on_reactor_supply_target_slider_value_changed"]

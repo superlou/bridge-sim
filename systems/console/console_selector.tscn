@@ -28,5 +28,10 @@ text = "Helm"
 layout_mode = 2
 text = "View Screen"
 
+[node name="SelectEngineering" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Engineering"
+
 [connection signal="pressed" from="VBoxContainer/SelectHelm" to="." method="_on_select_helm_pressed"]
 [connection signal="pressed" from="VBoxContainer/SelectViewScreen" to="." method="_on_select_view_screen_pressed"]
+[connection signal="pressed" from="VBoxContainer/SelectEngineering" to="." method="_on_select_engineering_pressed"]

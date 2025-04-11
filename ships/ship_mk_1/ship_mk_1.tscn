@@ -1,13 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctpqjdto8qaq5"]
+[gd_scene load_steps=14 format=3 uid="uid://ctpqjdto8qaq5"]
 
 [ext_resource type="Script" uid="uid://dkenolot56424" path="res://ships/ship_mk_1/ship_mk_1.gd" id="1_7v0tr"]
 [ext_resource type="Script" uid="uid://ccccnfa1jr43o" path="res://systems/ship/deck.gd" id="2_1rlim"]
 [ext_resource type="Script" uid="uid://b52bnkbtoa7nb" path="res://systems/ship/room.gd" id="3_4rb3n"]
 [ext_resource type="PackedScene" uid="uid://rxykdvfw0ybx" path="res://systems/equipment/reactor.tscn" id="4_45bu3"]
 [ext_resource type="PackedScene" uid="uid://bjo3x8b8r6ulp" path="res://systems/equipment/engine.tscn" id="5_0v7ov"]
-[ext_resource type="Script" uid="uid://76sb7c4bae6w" path="res://systems/ship/time_computer.gd" id="5_st3ky"]
-[ext_resource type="Script" uid="uid://sutlg7tk4mq4" path="res://systems/ship/inertial_computer.gd" id="6_o4xg5"]
-[ext_resource type="Script" uid="uid://sroie8ml6rdh" path="res://systems/ship/thrust_computer.gd" id="7_p2rcw"]
+[ext_resource type="Script" uid="uid://76sb7c4bae6w" path="res://systems/computer/time_computer.gd" id="5_st3ky"]
+[ext_resource type="Script" uid="uid://sutlg7tk4mq4" path="res://systems/computer/inertial_computer.gd" id="6_o4xg5"]
+[ext_resource type="Script" uid="uid://sroie8ml6rdh" path="res://systems/computer/thrust_computer.gd" id="7_p2rcw"]
+[ext_resource type="Script" uid="uid://cemm482ajrn5j" path="res://systems/computer/reactor_computer.gd" id="9_n1j5i"]
 [ext_resource type="Script" uid="uid://x7tysji4mkth" path="res://systems/electrical/conduit.gd" id="10_n1j5i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1rlim"]
@@ -56,7 +57,7 @@ metadata/_custom_type_script = "uid://b52bnkbtoa7nb"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6085, 0, 3.74811)
 shape = SubResource("BoxShape3D_p2rcw")
 
-[node name="Reactor" parent="Deck1/EngineeringBay" instance=ExtResource("4_45bu3")]
+[node name="Reactor1" parent="Deck1/EngineeringBay" instance=ExtResource("4_45bu3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.38872, 0, 5.63494)
 
 [node name="Reactor2" parent="Deck1/EngineeringBay" instance=ExtResource("4_45bu3")]
@@ -83,10 +84,22 @@ script = ExtResource("7_p2rcw")
 ship = NodePath("..")
 metadata/_custom_type_script = "uid://sroie8ml6rdh"
 
+[node name="ReactorComputer1" type="Node" parent="." node_paths=PackedStringArray("reactor", "ship")]
+script = ExtResource("9_n1j5i")
+reactor = NodePath("../Deck1/EngineeringBay/Reactor1")
+ship = NodePath("..")
+metadata/_custom_type_script = "uid://cemm482ajrn5j"
+
+[node name="ReactorComputer2" type="Node" parent="." node_paths=PackedStringArray("reactor", "ship")]
+script = ExtResource("9_n1j5i")
+reactor = NodePath("../Deck1/EngineeringBay/Reactor2")
+ship = NodePath("..")
+metadata/_custom_type_script = "uid://cemm482ajrn5j"
+
 [node name="Conduit1" type="Node3D" parent="." node_paths=PackedStringArray("links")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.87444, 0, 32.8779)
 script = ExtResource("10_n1j5i")
-links = [NodePath("../Deck1/EngineeringBay/Reactor"), NodePath("../Deck1/EngineeringBay/Engine1"), NodePath("../Conduit3")]
+links = [NodePath("../Deck1/EngineeringBay/Reactor1"), NodePath("../Deck1/EngineeringBay/Engine1"), NodePath("../Conduit3")]
 metadata/_custom_type_script = "uid://x7tysji4mkth"
 
 [node name="Conduit2" type="Node3D" parent="." node_paths=PackedStringArray("links")]
